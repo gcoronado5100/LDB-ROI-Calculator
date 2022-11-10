@@ -12,6 +12,15 @@ function App() {
     currency: 'USD',
   })
 
+  const onChangeRange = (e) => {
+    let target = e.target
+    const min = target.min
+    const max = target.max
+    const val = target.value
+    
+    target.style.backgroundSize = (val - min) * 100 / (max - min) + '% 100%'
+  }
+
   const onChangeIndustry = (e) => {
     setIndustry(e.target.value)
   }
@@ -20,18 +29,21 @@ function App() {
 
   const onChangeDeal = (e) => {
     setDealSize(e.target.value)
+    onChangeRange(e)
   }
 
   const [prospects,setProspects] = useState(850)
 
   const onChangeProspects = (e) => {
-    setProspects(e.target.value);
+    setProspects(e.target.value)
+    onChangeRange(e)
   }
 
   const [ratio, setRatio] = useState(10)
 
   const onChangeRatio = (e) => {
     setRatio(e.target.value)
+    onChangeRange(e)
   }
   
   const approximate = Math.round(prospects*(industry/1000))
@@ -68,14 +80,14 @@ function App() {
             <fieldset>
               <h4>Average Deal Size, $</h4>
               <span>Choose the average size of your deals.</span>
-              <label>$ { formatter.format(dealSize) }</label>
+              <label>{ formatter.format(dealSize) }</label>
               <input type="range" name="" id="" min={1000} max={100000} step={1000} onChange={onChangeDeal} />
             </fieldset>
             <fieldset>
               <h4>Number of B2B prospects</h4>
               <span>Choose the number of prospects you want to engage each month.</span>
               <label>{ formatter.format(prospects) }</label>
-              <input type="range" min={850} max={4500} step={150} onChange={onChangeProspects} />
+              <input type="range" min={850} max={4500} step={50} onChange={onChangeProspects} />
             </fieldset>
             <fieldset>
               <h4>Close Ratio (after appointment) %</h4>
@@ -84,20 +96,30 @@ function App() {
               <input type="range" name="" id="" min={10} max={100} step={10} onChange={onChangeRatio} />
             </fieldset>
           </div>
+
+
           <div className="col">
-            <div className="result-box">
-              <span className="result">{approximate}</span>
-              <span>Approx. number of appointment booked / monthly</span>
-            </div>
+
+            <h4>B2B lead generation that sees your business through </h4>
+            
 
             <div className="result-box">
               <span className="result">{ formatter.format(price) }/year</span>
             </div>
 
-            <div className="result-box">
-              <span className="result">{roiValue}%</span>
-              <span>Return on marketing investment</span>
+            <div className="result-row">
+              <div className="result-box">
+                <span className="result">{approximate}</span>
+                <span>Approx. number of appointment booked / monthly</span>
+              </div>
+              <div className="result-box">
+                <span className="result">{roiValue}%</span>
+                <span>Return on marketing investment</span>
+              </div>
             </div>
+
+            <span>Each model offers flexible pricing to fit your lead generation needs and stay within the limits of your budget.</span>
+
           </div>
         </div>
       </div>

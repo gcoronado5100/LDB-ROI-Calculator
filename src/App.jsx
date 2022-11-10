@@ -7,6 +7,11 @@ function App() {
 
   const [industry, setIndustry] = useState(industries[0].value);
 
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  })
+
   const onChangeIndustry = (e) => {
     setIndustry(e.target.value)
   }
@@ -63,19 +68,19 @@ function App() {
             <fieldset>
               <h4>Average Deal Size, $</h4>
               <span>Choose the average size of your deals.</span>
-              <label>$ {dealSize}</label>
+              <label>$ { formatter.format(dealSize) }</label>
               <input type="range" name="" id="" min={1000} max={100000} step={1000} onChange={onChangeDeal} />
             </fieldset>
             <fieldset>
               <h4>Number of B2B prospects</h4>
               <span>Choose the number of prospects you want to engage each month.</span>
-              <label>{prospects}</label>
+              <label>{ formatter.format(prospects) }</label>
               <input type="range" min={850} max={4500} step={150} onChange={onChangeProspects} />
             </fieldset>
             <fieldset>
               <h4>Close Ratio (after appointment) %</h4>
               <span>To calculate this number, divide the number of sales you made by the number of quotes you sent out.</span>
-              <label>{ratio}</label>
+              <label>{ratio}%</label>
               <input type="range" name="" id="" min={10} max={100} step={10} onChange={onChangeRatio} />
             </fieldset>
           </div>
@@ -86,7 +91,7 @@ function App() {
             </div>
 
             <div className="result-box">
-              <span className="result">$ {price}/year</span>
+              <span className="result">{ formatter.format(price) }/year</span>
             </div>
 
             <div className="result-box">

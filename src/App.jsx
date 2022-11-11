@@ -10,7 +10,10 @@ function App() {
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
+    maximumSignificantDigits: 3
   })
+
+  const formatter2 = new Intl.NumberFormat('en-US');
 
   const onChangeRange = (e) => {
     let target = e.target
@@ -86,7 +89,7 @@ function App() {
             <fieldset>
               <h4>Number of B2B prospects</h4>
               <span>Choose the number of prospects you want to engage each month.</span>
-              <label>{ formatter.format(prospects) }</label>
+              <label>{ formatter2.format(prospects) }</label>
               <input type="range" min={850} max={4500} step={50} onChange={onChangeProspects} />
             </fieldset>
             <fieldset>

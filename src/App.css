@@ -57,7 +57,7 @@ section{
     display: flex;
     flex-direction: column;
     gap:8px;
-    justify-content: end;
+    justify-content: space-evenly;
     padding: 1rem;
 }
 

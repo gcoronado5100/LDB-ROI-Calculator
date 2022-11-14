@@ -87,7 +87,7 @@ function App() {
               <input type="range" name="" id="" min={1000} max={100000} step={1000} onChange={onChangeDeal} />
             </fieldset>
             <fieldset>
-              <h4>Number of B2B prospects</h4>
+              <h4>Number of B2B/B2C prospects</h4>
               <span>Choose the number of prospects you want to engage each month.</span>
               <label>{ formatter2.format(prospects) }</label>
               <input type="range" min={850} max={4500} step={50} onChange={onChangeProspects} />
@@ -103,7 +103,7 @@ function App() {
 
           <div className="col">
 
-            <h4>B2B lead generation that sees your business through </h4>
+            <h4>B2B/B2C lead generation that sees your business through </h4>
             
 
             <div className="result-box">

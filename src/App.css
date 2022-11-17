@@ -8,11 +8,7 @@
     text-decoration: none;
 }
 
-:root {
-    --container-lg: 75%;
-    --container-md: 85%;
-    --container-sm: 92%;
-}
+
 
 
 
@@ -21,7 +17,8 @@ section{
 }
 
 .container {
-    width: var(--container-lg);
+    width: 100%;
+    max-width: 1024px;
     margin: 0 auto;
     font-family: 'inter', sans-serif;
 }

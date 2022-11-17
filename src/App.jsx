@@ -60,7 +60,7 @@ function App() {
 
   return (
     <section>
-      <div className="container calculator__container">
+      <div className="calculator__container">
         <div className="roi-calculator__header">
           <p>To get a better understanding of what your cost and return on investment (ROI) would be depending on your industry, successful conversions, and budget, check out the calculator below.</p>
         </div>

@@ -61,7 +61,6 @@ function App() {
   return (
     <section>
       <div className="calculator__container">
-        <iframe src="" frameborder="0"></iframe>
 
         <div className="calculator-form__container">
           <div className="col">
